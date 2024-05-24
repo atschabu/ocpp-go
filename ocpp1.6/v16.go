@@ -350,6 +350,7 @@ func NewCentralSystem(endpoint *ocppj.Server, server ws.WsServer) CentralSystem 
 			logging.Profile,
 			security.Profile,
 			securefirmware.Profile,
+			certificates.Profile,
 		)
 	}
 	cs := newCentralSystem(endpoint)
