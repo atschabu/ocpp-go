@@ -3,7 +3,7 @@ package certificates
 import (
 	"reflect"
 
-	"github.com/lorenzodonini/ocpp-go/ocpp2.0.1/types"
+	"github.com/lorenzodonini/ocpp-go/ocpp1.6/types"
 	"gopkg.in/go-playground/validator.v9"
 )
 
@@ -31,14 +31,14 @@ func isValidGetInstalledCertificateStatus(fl validator.FieldLevel) bool {
 
 // The field definition of the GetInstalledCertificateIdsRequest PDU sent by the CSMS to the Charging Station.
 type GetInstalledCertificateIdsRequest struct {
-	CertificateTypes []types.CertificateUse `json:"certificateType" validate:"omitempty,dive,certificateUse16"`
+	CertificateType types.CertificateUse `json:"certificateType" validate:"omitempty,certificateUse16"`
 }
 
 // The field definition of the GetInstalledCertificateIds response payload sent by the Charging Station to the CSMS in response to a GetInstalledCertificateIdsRequest.
 type GetInstalledCertificateIdsResponse struct {
-	Status                   GetInstalledCertificateStatus    `json:"status" validate:"required,getInstalledCertificateStatus16"`
-	StatusInfo               *types.StatusInfo                `json:"statusInfo,omitempty" validate:"omitempty"`
-	CertificateHashDataChain []types.CertificateHashDataChain `json:"certificateHashData,omitempty" validate:"omitempty,dive"`
+	Status              GetInstalledCertificateStatus `json:"status" validate:"required,getInstalledCertificateStatus16"`
+	StatusInfo          *types.StatusInfo             `json:"statusInfo,omitempty" validate:"omitempty"`
+	CertificateHashData []types.CertificateHashData   `json:"certificateHashData,omitempty" validate:"omitempty,dive"`
 }
 
 // To facilitate the management of the Charging Station’s installed certificates, a method of retrieving the installed certificates is provided.

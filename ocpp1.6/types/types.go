@@ -367,14 +367,14 @@ func isValidGenericStatus(fl validator.FieldLevel) bool {
 type CertificateUse string
 
 const (
-	CSMSRootCertificate         CertificateUse = "CSMSRootCertificate"
-	ManufacturerRootCertificate CertificateUse = "ManufacturerRootCertificate"
+	CentralSystemRootCertificate CertificateUse = "CentralSystemRootCertificate"
+	ManufacturerRootCertificate  CertificateUse = "ManufacturerRootCertificate"
 )
 
 func isValidCertificateUse(fl validator.FieldLevel) bool {
 	use := CertificateUse(fl.Field().String())
 	switch use {
-	case CSMSRootCertificate, ManufacturerRootCertificate:
+	case CentralSystemRootCertificate, ManufacturerRootCertificate:
 		return true
 	default:
 		return false
