@@ -1,4 +1,4 @@
-module github.com/GLCharge/ocpp-go
+module github.com/atschabu/ocpp-go
 
 go 1.16
 
